@@ -19,6 +19,10 @@ export function useRecipes() {
     router.back();
   }
 
+  function handleOpenRecipe(id: string) {
+    router.navigate("/recipe/" + id);
+  }
+
   const imagePath = services.storage.imagePath;
 
   useEffect(() => {
@@ -31,6 +35,7 @@ export function useRecipes() {
 
   return {
     handleBackPress,
+    handleOpenRecipe,
     ingredients,
     recipes,
     imagePath,

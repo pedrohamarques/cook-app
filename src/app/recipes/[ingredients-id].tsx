@@ -8,7 +8,8 @@ import { useRecipes } from "./index.hook";
 import { styles } from "./styles";
 
 export default function Recipes() {
-  const { handleBackPress, ingredients, recipes, imagePath } = useRecipes();
+  const { handleBackPress, ingredients, recipes, imagePath, handleOpenRecipe } =
+    useRecipes();
 
   return (
     <View style={styles.container}>
@@ -24,7 +25,9 @@ export default function Recipes() {
 
       <FlatList
         data={recipes}
-        renderItem={({ item }) => <Recipe recipe={item} />}
+        renderItem={({ item }) => (
+          <Recipe recipe={item} onPress={() => handleOpenRecipe(item.id)} />
+        )}
         keyExtractor={(item) => item.id}
         style={styles.recipes}
         showsVerticalScrollIndicator={false}
