@@ -6,9 +6,7 @@ module.exports = function (api) {
       [
         "module-resolver",
         {
-          alias: {
-            "@theme": "./src/theme",
-          },
+          alias: {},
         },
       ],
     ],
