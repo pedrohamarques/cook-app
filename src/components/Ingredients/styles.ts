@@ -5,6 +5,8 @@ export const styles = StyleSheet.create({
     flexWrap: "wrap",
     flexDirection: "row",
     gap: 12,
+  },
+  selectedItemsContainer: {
     paddingBottom: 200,
   },
 });

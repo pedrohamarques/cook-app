@@ -8,9 +8,9 @@ import type { IngredientProps } from "./types";
 
 type IngredientsProps = {
   ingredients: IngredientProps[];
-  onItemPress: (value: string) => void;
+  onItemPress?: (value: string) => void;
   imagePath: string;
-  selectedItems: string[];
+  selectedItems?: string[];
 };
 
 export function Ingredients({
@@ -23,15 +23,18 @@ export function Ingredients({
     <>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.container}
+        contentContainerStyle={[
+          styles.container,
+          selectedItems && styles.selectedItemsContainer,
+        ]}
       >
         {ingredients.map((item) => (
           <Ingredient
             key={item.id}
             image={`${imagePath}/${item.image}`}
             name={item.name}
-            onPress={() => onItemPress(item.id)}
-            selected={selectedItems.includes(item.id)}
+            onPress={() => onItemPress?.(item.id)}
+            selected={selectedItems?.includes(item.id)}
           />
         ))}
       </ScrollView>
