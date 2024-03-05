@@ -5,12 +5,19 @@ import { styles } from "./styles";
 import { Ingredient, Selected } from "./components";
 import { useIngredients } from "./ingredients.hook";
 
-export function Ingredients() {
+import type { IngredientProps } from "./types";
+
+type IngredientsProps = {
+  ingredients: IngredientProps[];
+};
+
+export function Ingredients({ ingredients }: IngredientsProps) {
   const {
     handleToggleSelected,
     handleClearSelected,
     handleSearch,
     selectedItems,
+    imagePath,
   } = useIngredients();
 
   return (
@@ -19,12 +26,13 @@ export function Ingredients() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.container}
       >
-        {Array.from({ length: 50 }).map((item, index) => (
+        {ingredients.map((item) => (
           <Ingredient
-            key={index}
-            name="Tomate"
-            onPress={() => handleToggleSelected(String(index))}
-            selected={selectedItems.includes(String(index))}
+            key={item.id}
+            image={`${imagePath}/${item.image}`}
+            name={item.name}
+            onPress={() => handleToggleSelected(item.id)}
+            selected={selectedItems.includes(item.id)}
           />
         ))}
       </ScrollView>

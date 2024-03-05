@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Alert } from "react-native";
 import { router } from "expo-router";
+import { services } from "@/services";
 
 export function useIngredients() {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
@@ -32,8 +33,11 @@ export function useIngredients() {
     router.navigate("/recipes/");
   }
 
+  const imagePath = services.storage.imagePath;
+
   return {
     selectedItems,
+    imagePath,
     handleToggleSelected,
     handleClearSelected,
     handleSearch,
