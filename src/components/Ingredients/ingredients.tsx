@@ -30,11 +30,11 @@ export function Ingredients({
       >
         {ingredients.map((item) => (
           <Ingredient
-            key={item.id}
+            key={item.ingredient_id}
             image={`${imagePath}/${item.image}`}
             name={item.name}
-            onPress={() => onItemPress?.(item.id)}
-            selected={selectedItems?.includes(item.id)}
+            onPress={() => onItemPress?.(item.ingredient_id)}
+            selected={selectedItems?.includes(item.ingredient_id)}
           />
         ))}
       </ScrollView>

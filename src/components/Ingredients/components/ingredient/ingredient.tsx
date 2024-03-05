@@ -5,7 +5,7 @@ import { styles } from "./styles";
 
 import type { IngredientProps as GlobalIngredientProps } from "@/components/Ingredients/types";
 
-type IngredientProps = Omit<GlobalIngredientProps, "id">;
+type IngredientProps = Omit<GlobalIngredientProps, "ingredient_id">;
 
 export function Ingredient({
   name,

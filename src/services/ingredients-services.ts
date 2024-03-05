@@ -13,7 +13,7 @@ export async function findAll() {
 export async function findByRecipeId(id: string) {
   const { data } = await supabase
     .from("recipes_ingredients")
-    .select("ingredients (id, name, image)")
+    .select("ingredients (ingredient_id, name, image)")
     .eq("recipe_id", id)
     .returns<{ ingredients: IngredientResponse }[]>();
 
@@ -24,7 +24,7 @@ export async function findByIds(ids: string[]) {
   const { data } = await supabase
     .from("ingredients")
     .select()
-    .in("id", ids)
+    .in("ingredient_id", ids)
     .order("name")
     .returns<IngredientResponse[]>();
 

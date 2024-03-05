@@ -2,5 +2,5 @@ export type IngredientProps = {
   name: string;
   image: string;
   selected?: boolean;
-  id: string;
+  ingredient_id: string;
 };

@@ -1,5 +1,5 @@
 type IngredientResponse = {
-  id: string;
+  ingredient_id: string;
   name: string;
   image: string;
 };
