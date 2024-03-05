@@ -5,6 +5,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 import { theme } from "@/theme";
 
+import { Button } from "@/components/Button";
+
 import { styles } from "./styles";
 
 type SelectedProps = {
@@ -29,6 +31,8 @@ export function Selected({ quantity, onClear, onSearch }: SelectedProps) {
           color={theme.colors.gray_400}
         />
       </View>
+
+      <Button title="Encontrar" onPress={onSearch} />
     </Animated.View>
   );
 }

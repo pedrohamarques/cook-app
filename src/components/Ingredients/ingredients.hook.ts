@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Alert } from "react-native";
+import { router } from "expo-router";
 
 export function useIngredients() {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
@@ -27,9 +28,14 @@ export function useIngredients() {
     ]);
   }
 
+  function handleSearch() {
+    router.navigate("/recipes/");
+  }
+
   return {
     selectedItems,
     handleToggleSelected,
     handleClearSelected,
+    handleSearch,
   };
 }

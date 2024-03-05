@@ -6,8 +6,12 @@ import { Ingredient, Selected } from "./components";
 import { useIngredients } from "./ingredients.hook";
 
 export function Ingredients() {
-  const { handleToggleSelected, handleClearSelected, selectedItems } =
-    useIngredients();
+  const {
+    handleToggleSelected,
+    handleClearSelected,
+    handleSearch,
+    selectedItems,
+  } = useIngredients();
 
   return (
     <>
@@ -28,7 +32,7 @@ export function Ingredients() {
         <Selected
           quantity={selectedItems.length}
           onClear={handleClearSelected}
-          onSearch={() => {}}
+          onSearch={handleSearch}
         />
       )}
     </>
