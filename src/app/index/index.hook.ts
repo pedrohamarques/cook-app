@@ -10,7 +10,6 @@ export function useIndex() {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   function handleToggleSelected(value: string) {
-    console.log(selectedItems, "selectedItems");
     if (selectedItems.includes(value)) {
       return setSelectedItems((state) =>
         state.filter((item) => item !== value),
