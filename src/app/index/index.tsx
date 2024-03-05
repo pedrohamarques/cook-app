@@ -1,13 +1,20 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-import { Ingredients } from "@/components";
+import { Ingredients, Selected } from "@/components";
 
 import { styles } from "./styles";
 import { useIndex } from "./index.hook";
 
 export default function Index() {
-  const { ingredients } = useIndex();
+  const {
+    ingredients,
+    handleClearSelected,
+    handleSearch,
+    handleToggleSelected,
+    imagePath,
+    selectedItems,
+  } = useIndex();
 
   return (
     <View style={styles.container}>
@@ -19,7 +26,20 @@ export default function Index() {
         Descubra receitas baseadas nos produtos que você escolheu.
       </Text>
 
-      <Ingredients ingredients={ingredients} />
+      <Ingredients
+        ingredients={ingredients}
+        onItemPress={handleToggleSelected}
+        imagePath={imagePath}
+        selectedItems={selectedItems}
+      />
+
+      {selectedItems.length > 0 && (
+        <Selected
+          quantity={selectedItems.length}
+          onClear={handleClearSelected}
+          onSearch={handleSearch}
+        />
+      )}
     </View>
   );
 }
