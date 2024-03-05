@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Alert } from "react-native";
 
 export function useIngredients() {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
@@ -13,8 +14,22 @@ export function useIngredients() {
     setSelectedItems((state) => [...state, value]);
   }
 
+  function handleClearSelected() {
+    Alert.alert("Limpar", "Deseja limpar tudo?", [
+      {
+        text: "Não",
+        style: "cancel",
+      },
+      {
+        text: "Sim",
+        onPress: () => setSelectedItems([]),
+      },
+    ]);
+  }
+
   return {
     selectedItems,
     handleToggleSelected,
+    handleClearSelected,
   };
 }

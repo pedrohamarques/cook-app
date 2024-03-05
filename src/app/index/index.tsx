@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-import { Ingredients } from "@/components/Ingredients";
+import { Ingredients } from "@/components";
 
 import { styles } from "./styles";
 
